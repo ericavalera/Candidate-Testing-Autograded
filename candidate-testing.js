@@ -18,6 +18,7 @@ let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3" ];
 let candidateAnswers= [];
 
 
+
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
   candidateName =input.question("Enter your name: ");
@@ -39,7 +40,13 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 for(let i =0; i < correctAnswers.length; i++){
-  console.log(`Your answer: ${candidateAnswers[i]}\nCorrect answers: ${correctAnswers[i]}`); }
+  if(candidateAnswers[i].includes(correctAnswers[i])){
+    console.log(`Your answer ${candidateAnswers[i]} is correct.`);
+  } else {
+    console.log(`Your answer: ${candidateAnswers[i]} is incorrect`);
+  }
+  console.log(`Correct answer: ${correctAnswers[i]} \n`);
+ }
   
   
 
