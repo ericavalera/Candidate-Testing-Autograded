@@ -38,10 +38,15 @@ function askQuestion() {
 
 function gradeQuiz(candidateAnswers) {
 
-  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-for(let i =0; i < correctAnswers.length; i++){
-  if(candidateAnswers[i].includes(correctAnswers[i])){
+let numCorrect= 0;
+let numQuestions= 5;
+
+
+
+  for(let i =0; i < correctAnswers.length; i++){
+  if(candidateAnswers[i].toLowerCase()===correctAnswers[i].toLowerCase()){
     console.log(`Your answer ${candidateAnswers[i]} is correct.`);
+    numCorrect += 1;
   } else {
     console.log(`Your answer: ${candidateAnswers[i]} is incorrect`);
   }
@@ -50,9 +55,12 @@ for(let i =0; i < correctAnswers.length; i++){
   
   
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
-
+  let grade= numCorrect / numQuestions * 100;
+  if (grade < 80){
+    console.log(`You got ${grade}% correct; You failed, try again.`);
+   } else{ 
+     console.log(`You got ${grade}% correct, yay you passed!`);
+    }
   return grade;
 }
 
